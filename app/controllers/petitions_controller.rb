@@ -28,7 +28,7 @@ class PetitionsController < ApplicationController
 
   def update
     petition = current_user.petitions.find(params[:id])
-    petition.update(permitted_params)
+    petition.update!(permitted_params)
     redirect_to petition, notice: 'Петиция обновлена'
   end
 

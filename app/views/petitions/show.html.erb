@@ -16,9 +16,18 @@
 </p>
 
 <p>
+  <b>Осталось дней:</b>
+  <%= @petition.days_left %>
+</p>
+
+<p>
   <% if @petition.voted_by?(current_user) %>
     Вы уже проголосовали за данную петицию
   <% else %>
-    <%= button_to('Поддержать', votes_path({ petition_id: @petition.id }) ) %>
+    <% if @petition.expired? %>
+      Голосование окончено
+    <% else %>
+      <%= button_to('Поддержать', votes_path({ petition_id: @petition.id }) ) unless @petition.owner?(current_user)%>
+    <% end %>
   <% end %>
 </p>

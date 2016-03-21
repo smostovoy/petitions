@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   before_filter :authorize
 
   def create
-    vote = current_user.votes.create(permitted_params)
+    vote = current_user.votes.create!(permitted_params)
     redirect_to vote.petition, notice: 'Спасибо! Ваш голос учтен'
   end
 

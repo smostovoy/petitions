@@ -2,5 +2,6 @@
   <td><%= link_to petition.title, petition_path(petition) %></td>
   <td><%= petition.user.name %></td>
   <td><%= petition.votes.count %></td>
+  <td><%= petition.days_left %></td>
   <td><%= petition.created_at.strftime('%d/%m/%Y %H:%M') %></td>
 </tr>
